@@ -1,9 +1,10 @@
-
-import React, { useState, useEffect } from 'react'
+import React, { useState,useEffect } from 'react'
 import Chart from "react-apexcharts";
+
 
 function App() {
   const [petPrices, setPetPrice] = useState([])
+
   const [petChart, setPetChart] = useState({
     options: {
       chart: {
@@ -21,40 +22,19 @@ function App() {
     ]
   })
 
+
   useEffect(() => {
-    fetch('https://confused-scrubs-jay.cyclic.app/pets_price')
+    fetch('https://attractive-cyan-sheep.cyclic.app/pets_price')
     .then(res => res.json())
     .then(result => {
       console.log(result)
       setPetPrice(result)
     })
-
-    fetch('https://confused-scrubs-jay.cyclic.app/pets_price_chart')
-    .then(res => res.json())
-    .then(result => {
-      console.log(result)
-      setPetChart({
-        options: {
-          chart: {
-            id: "basic-bar"
-          },
-          xaxis: {
-            categories: result.petNames
-          }
-        },
-        series: [
-          {
-            name: "ราคา",
-            data: result.prices
-          }
-        ]
-      })
-    })
   }, [])
 
   return (
     <div>
-      <h1>BIGWave 6302627</h1>
+      <h1>Teerapat 6402802</h1>
       <ul>
         {petPrices.map(pet => (
           <li key={pet.id}>
@@ -68,10 +48,10 @@ function App() {
         type='bar'
         width='500'
       />
+
     </div>
   )
+
 }
 
 export default App
-
-
